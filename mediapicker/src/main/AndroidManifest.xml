@@ -17,16 +17,19 @@
                 android:resource="@xml/file_dmc_paths" />
         </provider>
         <activity
+            android:exported="true"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name="com.dmcbig.mediapicker.PickerActivity" />
         <activity
+            android:exported="true"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name="com.dmcbig.mediapicker.PreviewActivity" />
         <activity
+            android:exported="true"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"

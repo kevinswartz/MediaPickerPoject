@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.FileProvider;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.FileProvider;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +23,8 @@ import com.dmcbig.mediapicker.entity.Media;
 import java.io.File;
 import java.util.List;
 
-import uk.co.senab.photoview.PhotoView;
-import uk.co.senab.photoview.PhotoViewAttacher;
+import com.github.chrisbanes.photoview.PhotoView;
+import com.github.chrisbanes.photoview.OnPhotoTapListener;
 
 /**
  * Created by dmcBig on 2017/8/16.
@@ -61,9 +61,9 @@ public class PreviewFragment extends Fragment {
         play_view = (ImageView) view.findViewById(R.id.play_view);
         mPhotoView = (PhotoView) view.findViewById(R.id.photoview);
         mPhotoView.setMaximumScale(5);
-        mPhotoView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
+        mPhotoView.setOnPhotoTapListener(new OnPhotoTapListener() {
             @Override
-            public void onPhotoTap(View view, float x, float y) {
+            public void onPhotoTap(ImageView view, float x, float y) {
                 PreviewActivity previewActivity=  (PreviewActivity)getActivity();
                 previewActivity.setBarStatus();
             }

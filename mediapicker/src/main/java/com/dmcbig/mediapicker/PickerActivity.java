@@ -7,12 +7,12 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.ListPopupWindow;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.appcompat.widget.ListPopupWindow;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -33,8 +33,8 @@ import com.dmcbig.mediapicker.utils.ScreenUtils;
 
 import java.util.ArrayList;
 
-import pub.devrel.easypermissions.AfterPermissionGranted;
-import pub.devrel.easypermissions.EasyPermissions;
+// import pub.devrel.easypermissions.AfterPermissionGranted;
+// import pub.devrel.easypermissions.EasyPermissions;
 
 
 /**
@@ -118,9 +118,9 @@ public class PickerActivity extends Activity implements DataCallback, View.OnCli
         });
     }
 
-    @AfterPermissionGranted(119)
+//     @AfterPermissionGranted(119)
     void getMediaData() {
-        if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+//         if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             int type = argsIntent.getIntExtra(PickerConfig.SELECT_MODE, PickerConfig.PICKER_IMAGE_VIDEO);
             if (type == PickerConfig.PICKER_IMAGE_VIDEO) {
                 getLoaderManager().initLoader(type, null, new MediaLoader(this, this));
@@ -129,9 +129,9 @@ public class PickerActivity extends Activity implements DataCallback, View.OnCli
             } else if (type == PickerConfig.PICKER_VIDEO) {
                 getLoaderManager().initLoader(type, null, new VideoLoader(this, this));
             }
-        } else {
-            EasyPermissions.requestPermissions(this, getString(R.string.READ_EXTERNAL_STORAGE), 119, Manifest.permission.READ_EXTERNAL_STORAGE);
-        }
+//         } else {
+//             EasyPermissions.requestPermissions(this, getString(R.string.READ_EXTERNAL_STORAGE), 119, Manifest.permission.READ_EXTERNAL_STORAGE);
+//         }
     }
 
     @Override
@@ -212,7 +212,7 @@ public class PickerActivity extends Activity implements DataCallback, View.OnCli
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+//         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 
     @Override
